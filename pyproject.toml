@@ -27,7 +27,7 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/okarkout/umami-preprocessing"
+"Homepage" = "https://github.com/umami-hep/umami-preprocessing"
 
 [project.scripts]
 preprocess = "upp.main:main"
