@@ -26,7 +26,7 @@ class Component:
     def __post_init__(self):
         self.hist = Hist(self.dirname.parent.parent / "hists" / f"hist_{self.name}.h5")
 
-    def setup_reader(self, batch_size, jets_name="jets", fname=None, **kwargs):
+    def setup_reader(self, batch_size, jets_name="events", fname=None, **kwargs):
         if fname is None:
             fname = self.sample.path
         self.reader = H5Reader(
@@ -34,7 +34,7 @@ class Component:
         )
         log.debug(f"Setup component reader at: {fname}")
 
-    def setup_writer(self, variables, jets_name="jets"):
+    def setup_writer(self, variables, jets_name="events"):
         dtypes = self.reader.dtypes(variables.combined())
         shapes = self.reader.shapes(self.num_jets, variables.keys())
         self.writer = H5Writer(self.out_path, dtypes, shapes, jets_name=jets_name)

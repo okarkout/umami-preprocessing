@@ -15,7 +15,7 @@ def load_jets(
     paths: str | list,
     variable: str,
     flavour_label="flavour_label",
-    jets_name="jets",
+    jets_name="events",
 ) -> dict:
     """
     Load the variables and labels from the jets in a given file(s).
@@ -32,7 +32,7 @@ def load_jets(
         by default "flavour_label"
     jets_name: str, optional
         Name of the jet dataset / the global objects
-        by default "jets"
+        by default "events"
 
     Returns
     -------
@@ -50,7 +50,7 @@ def make_hist(
     flavours: list,
     variable: str,
     in_paths: str | list,
-    jets_name: str = "jets",
+    jets_name: str = "events",
     bins_range: tuple | None = None,
     suffix: str = "",
     flavour_cont: FlavourContainer = Flavours,
@@ -73,7 +73,7 @@ def make_hist(
         Path to the files from which the jets are loaded.
     jets_name: str, optional
         Name of the jet dataset / the global objects
-        by default "jets"
+        by default "events"
     bins_range : tuple, optional
         bins_range argument from from puma.HistogramPlot,
         by default None
@@ -98,7 +98,7 @@ def make_hist(
 
     # Loop over the flavours and add them to the histogram
     for label_value, label_string in enumerate([f.name for f in flavours]):
-        f"{label_string}jets" if len(label_string) == 1 else label_string
+        f"{label_string}events" if len(label_string) == 1 else label_string
 
         # Add the flavour with its label and colour to the histogram
         plot.add(
@@ -128,7 +128,7 @@ def make_hist_initial(
     flavours: list,
     variable: str,
     in_paths_list: str | list,
-    jets_name: str = "jets",
+    jets_name: str = "events",
     bins_range: tuple | None = None,
     suffix: str = "",
     jets_to_plot: int = -1,
@@ -158,7 +158,7 @@ def make_hist_initial(
         from which the jets are loaded.
     jets_name: str, optional
         Name of the jet dataset / the global objects
-        by default "jets"
+        by default "events"
     bins_range : tuple, optional
         bins_range argument from from puma.HistogramPlot,
         by default None
@@ -205,7 +205,7 @@ def make_hist_initial(
 
         # Loop over the flavours
         for flavour in flavours:
-            (f"{flavour.label}jets" if len(flavour.label) == 1 else flavour.label)
+            (f"{flavour.label}events" if len(flavour.label) == 1 else flavour.label)
 
             # Add to histogram
             plot.add(

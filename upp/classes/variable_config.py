@@ -7,7 +7,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class VariableConfig:
     variables: dict[str, dict[str, list[str]]]
-    jets_name: str = "jets"
+    jets_name: str = "events"
     keep_all: bool = False
 
     def __post_init__(self):

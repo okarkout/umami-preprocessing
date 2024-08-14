@@ -104,7 +104,7 @@ class PreprocessingConfig:
     num_jets_estimate_hist: int | None = None
     num_jets_estimate_norm: int | None = None
     merge_test_samples: bool = False
-    jets_name: str = "jets"
+    jets_name: str = "events"
     flavour_config: Path | None = None
 
     def __post_init__(self):
